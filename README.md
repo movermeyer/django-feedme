@@ -23,6 +23,14 @@ If you want to use Celery for fetching (Recommended) then add:
 
 to your settings file.
 
+This app bundles static and works out of the box with django static files.  If you aren't collecting static
+you'll need to copy the static directory to where ever you serve static from.
+
+Contributions
+-------------
+
+Please place all bug reports in Github Issues.  Pull requests are welcome and encouraged!!
+
 
 Documentation
 -------------
