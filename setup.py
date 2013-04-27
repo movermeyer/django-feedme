@@ -21,5 +21,5 @@ setup(
         'Programming Language :: Python :: 2.7',
         "Framework :: Django",
         ],
-    install_requires = ['django_compressor==1.3', 'django-bootstrap-static==2.3.1']
+    install_requires = ['feedparser==5.1.3', 'django-bootstrap-static==2.3.1', 'hadrian==1.1.5']
     )
