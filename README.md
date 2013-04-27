@@ -1,6 +1,8 @@
 Django Feed Me
 ==============
 
+[![Build Status](https://travis-ci.org/dstegelman/django-feedme.png?branch=master)](https://travis-ci.org/dstegelman/django-feedme)
+
 Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
 and parses them in an easy to read interface.  This is currently in development.  The app works as POC using the Django
 Admin.  A seperate interface for adding feeds is coming down in the pipeline.

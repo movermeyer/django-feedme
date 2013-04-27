@@ -15,6 +15,7 @@ env:
 
 # command to install dependencies
 install:
+  - pip install --use-mirrors -r test-requirements.txt
   - pip install --use-mirrors $DJANGO_VERSION
 
 # command to run tests
