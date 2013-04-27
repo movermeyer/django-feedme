@@ -26,6 +26,24 @@ to your settings file.
 This app bundles static and works out of the box with django static files.  If you aren't collecting static
 you'll need to copy the static directory to where ever you serve static from.
 
+Celery Beat
+-----------
+
+To make use of the Celery beat schedule to automatically update feeds at given intervals, open your settings file and
+enter something like the following:
+
+    import datetime
+
+
+    CELERYBEAT_SCHEDULE = {
+        "feed-updates": {
+            "task": "update_all_feeds",
+            "schedule": datetime.timedelta(hours=1),
+            },
+        }
+
+More documentation for Celery can be found at the CeleryProject.
+
 Contributions
 -------------
 
