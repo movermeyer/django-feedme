@@ -23,7 +23,8 @@ If you want to use Celery for fetching (Recommended) then add:
 
     FEED_UPDATE_CELERY = True
 
-to your settings file.
+to your settings file.  Make sure you've installed and configured Celery properly.  The syntax used should be good
+for both Celery 2 and 3.
 
 This app bundles static and works out of the box with django static files.  If you aren't collecting static
 you'll need to copy the static directory to where ever you serve static from.
@@ -66,3 +67,8 @@ Additional Planned Features
 * Mark all or some feeds as read/unread
 * Look and Feel updates
 * Tests
+
+Questions/Comments/Hate Mail?
+-----------------------------
+
+Drop an issue in Github and I'll be sure to find it.
