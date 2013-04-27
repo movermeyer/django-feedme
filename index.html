@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Django-feedme by dstegelman</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/dstegelman/django-feedme">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/dstegelman/django-feedme/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/dstegelman/django-feedme/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Django-feedme</h1>
+          <p>Google Reader replacement app in Python/Django</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/dstegelman">dstegelman</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>Django Feed Me</h1>
+
+<p>Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
+and parses them in an easy to read interface.  This is currently in development.  The app works as POC using the Django
+Admin.  A seperate interface for adding feeds is coming down in the pipeline.</p>
+
+<p><img src="http://cl.ly/image/0j2z0y0K1e2e/Screen%20Shot%202013-04-27%20at%209.54.10%20AM.png" alt="image"></p>
+
+<h2>Installation</h2>
+
+<p>To install FeedMe simply:</p>
+
+<pre><code>pip install django-feedme
+</code></pre>
+
+<p>Add <code>feedme</code> to your installed apps.  Add route a url to <code>feedme.urls</code></p>
+
+<p>If you want to use Celery for fetching (Recommended) then add:</p>
+
+<pre><code>FEED_UPDATE_CELERY = True
+</code></pre>
+
+<p>to your settings file.</p>
+
+<p>This app bundles static and works out of the box with django static files.  If you aren't collecting static
+you'll need to copy the static directory to where ever you serve static from.</p>
+
+<h2>Contributions</h2>
+
+<p>Please place all bug reports in Github Issues.  Pull requests are welcome and encouraged!!</p>
+
+<h2>Documentation</h2>
+
+<p>Docs are coming soon on RTD.  For now please refer to this file and the Wiki/Issues in this project.</p>
+
+<h2>Additional Planned Features</h2>
+
+<ul>
+<li>Import feeds from Google Reader</li>
+<li>Add and manage feeds from the front end (rather than Django Admin)</li>
+<li>Mark all or some feeds as read/unread</li>
+<li>Look and Feel updates</li>
+<li>Tests</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
