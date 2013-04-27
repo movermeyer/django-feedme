@@ -2,3 +2,4 @@
 .idea
 *.egg-info/
 dist
+.DS_Store
