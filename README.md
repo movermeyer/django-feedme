@@ -45,3 +45,4 @@ Additional Planned Features
 * Add and manage feeds from the front end (rather than Django Admin)
 * Mark all or some feeds as read/unread
 * Look and Feel updates
+* Tests
