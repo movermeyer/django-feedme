@@ -13,7 +13,7 @@ To install FeedMe simply:
 
     pip install django-feedme
 
-Add ``feedme`` to your installed apps.
+Add ``feedme`` to your installed apps.  Add route a url to ``feedme.urls``
 
 If you want to use Celery for fetching (Recommended) then add:
 
@@ -33,3 +33,5 @@ Additional Planned Features
 
 * Import feeds from Google Reader
 * Add and manage feeds from the front end (rather than Django Admin)
+* Mark all or some feeds as read/unread
+* Look and Feel updates
