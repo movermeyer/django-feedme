@@ -19,6 +19,13 @@ To install FeedMe simply:
 
 Add ``feedme`` to your installed apps.  Add route a url to ``feedme.urls``
 
+Make sure to syncdb or migrate the app:
+
+    python manage.py syncdb
+    python manage.py migrate
+
+
+
 If you want to use Celery for fetching (Recommended) then add:
 
     FEED_UPDATE_CELERY = True
