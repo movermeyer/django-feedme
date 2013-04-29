@@ -4,7 +4,7 @@ from .models import Feed, FeedItem, Category
 
 
 class FeedItemAdmin(admin.ModelAdmin):
-    list_display = ('title', 'read')
+    list_display = ('title', 'feed', 'read')
 
 
 class FeedAdmin(admin.ModelAdmin):

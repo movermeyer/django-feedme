@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='django-feedme',
-    version='0.3',
+    version='0.3.1',
     packages=['feedme', 'feedme.migrations'],
     zip_safe = False,
     include_package_data=True,
