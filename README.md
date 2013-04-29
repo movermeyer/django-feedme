@@ -25,7 +25,6 @@ Make sure to syncdb or migrate the app:
     python manage.py migrate
 
 
-
 If you want to use Celery for fetching (Recommended) then add:
 
     FEED_UPDATE_CELERY = True
@@ -35,6 +34,14 @@ for both Celery 2 and 3.
 
 This app bundles static and works out of the box with django static files.  If you aren't collecting static
 you'll need to copy the static directory to where ever you serve static from.
+
+Dependencies
+------------
+
+Feedme also requires the use of the django-bootstrap-static library for some static files.  It is bundled in setup.py so by installing this package
+it should already be downloaded to your machine.  In order to have the bootstrap files picked up by your static files hanlder, you'll need to add
+```bootstrap``` to installed apps.  This will alow Django's static files to pick up the boostrap files.
+
 
 Celery Beat
 -----------
