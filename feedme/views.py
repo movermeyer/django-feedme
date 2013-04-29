@@ -17,7 +17,6 @@ class FeedList(LoginRequiredMixin, ListView):
     """
     template_name = 'feedme/feed_list.html'
     context_object_name = 'feed_items'
-    paginate_by = 1
 
     def update_feeds(self, user):
         for feed in Feed.objects.filter(user=user):

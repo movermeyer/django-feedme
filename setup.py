@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='django-feedme',
     version='0.3.1',
-    packages=['feedme', 'feedme.migrations'],
+    packages=find_packages(exclude=['demo']),
     zip_safe=False,
     include_package_data=True,
     url='http://github.com/dstegelman/django-feedme',
