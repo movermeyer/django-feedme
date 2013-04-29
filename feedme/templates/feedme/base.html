@@ -1,3 +1,5 @@
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +65,23 @@
 
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
-                    Logged in as <a href="#" class="navbar-link">{{ request.user }}</a>
+                  {% if request.user.is_authenticated %}
+                    Logged in as
+                    <a href="#" class="navbar-link">
+                      {{ request.user|title }}
+                    </a>
+                  {% endif %}
                 </p>
                 <ul class="nav">
-                    <li class="active"><a href="#">My Feeds</a></li>
+                    <li class="active"><a href="/">My Feeds</a></li>
                     <li><a href="#addFeed" data-toggle="modal">Add a Feed</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li>
+                      <a href="/import/" data-toggle="modal">
+                        Import from Google
+                      </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
