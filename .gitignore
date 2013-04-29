@@ -3,3 +3,6 @@
 *.egg-info/
 dist
 .DS_Store
+db.sqlite
+build
+
