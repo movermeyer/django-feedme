@@ -1,5 +1,9 @@
 # Django settings for demo project.
 
+import os
+
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -112,10 +116,9 @@ ROOT_URLCONF = 'demo.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'demo.wsgi.application'
 
+TEMPLATE_ROOT = os.path.join(PROJECT_ROOT, 'templates')
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    TEMPLATE_ROOT
 )
 
 INSTALLED_APPS = (
@@ -126,9 +129,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'pagination',
     'bootstrap',
     'feedme',
+    'registration',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -159,3 +162,5 @@ LOGGING = {
         },
     }
 }
+
+from social_auth_settings import *

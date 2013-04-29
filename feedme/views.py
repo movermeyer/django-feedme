@@ -43,7 +43,7 @@ class FeedList(LoginRequiredMixin, ListView):
         return context
 
 
-class ImportView(FormView):
+class ImportView(LoginRequiredMixin, FormView):
     template_name = 'feedme/takeout_form.html'
     form_class = ImportFeedForm
     success_url = 'feedme-feed-list'

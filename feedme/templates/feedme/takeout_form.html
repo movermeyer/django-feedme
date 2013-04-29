@@ -1,7 +1,6 @@
 {% extends "feedme/base.html" %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
 <table>
   <form action="" method="post" enctype="multipart/form-data">
     {{ form }}
@@ -13,5 +12,7 @@
     </tr>
   </form>
 </table>
-{% endif %}
+For getting all your subscription, open <a href="http://www.google.ru/reader/" target="_blank">GoogleReader</a>
+Settings, and click to Import & Export tab.
+Download your data through Takeout and choose zip file at this form.
 {% endblock %}

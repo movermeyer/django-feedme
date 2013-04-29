@@ -67,15 +67,19 @@
                 <p class="navbar-text pull-right">
                   {% if request.user.is_authenticated %}
                     Logged in as
-                    <a href="#" class="navbar-link">
+                    <a href="{% url auth_logout %}" class="navbar-link">
                       {{ request.user|title }}
+                    </a>
+                  {% else %}
+                    <a href="{% url auth_login %}" class="navbar-link">
+                      Login
                     </a>
                   {% endif %}
                 </p>
                 <ul class="nav">
+                  {% if request.user.is_authenticated %}
                     <li class="active"><a href="/">My Feeds</a></li>
                     <li><a href="#addFeed" data-toggle="modal">Add a Feed</a></li>
-                    {% if request.user.is_authenticated %}
                     <li>
                       <a href="/import/" data-toggle="modal">
                         Import from Google
