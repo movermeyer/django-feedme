@@ -29,11 +29,11 @@ class Category(models.Model):
 
 
 class Feed(models.Model):
-    url = models.CharField(blank=True, max_length=450)
+    url = models.CharField(blank=True, max_length=450, unique=True)
     title = models.CharField(blank=True, null=True, max_length=250)
     category = models.ForeignKey(Category, blank=True, null=True)
     user = models.ForeignKey(User, blank=True, null=True)
-    last_update = models.DateField(blank=True, null=True)
+    last_update = models.DateField(blank=True, null=True, editable=False)
 
     def __unicode__(self):
         return self.url

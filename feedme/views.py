@@ -1,4 +1,4 @@
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, CreateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
@@ -7,6 +7,7 @@ from infuse.auth.permissions import LoginRequiredMixin
 from .models import Feed, FeedItem, Category
 from .forms import AddFeedForm, ImportFeedForm
 from .google_takeout import GoogleReaderTakeout
+from .mixins import AjaxableResponseMixin
 
 
 class FeedList(LoginRequiredMixin, ListView):
@@ -16,6 +17,7 @@ class FeedList(LoginRequiredMixin, ListView):
     """
     template_name = 'feedme/feed_list.html'
     context_object_name = 'feed_items'
+    paginate_by = 1
 
     def update_feeds(self, user):
         for feed in Feed.objects.filter(user=user):
@@ -62,3 +64,8 @@ class ImportView(LoginRequiredMixin, FormView):
                 category=form.cleaned_data['category']
             )
         return HttpResponseRedirect(reverse(self.get_success_url()))
+
+
+class AddView(LoginRequiredMixin, AjaxableResponseMixin, CreateView):
+    form_class = AddFeedForm
+    model = Feed
