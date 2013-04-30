@@ -40,9 +40,11 @@
 
         <h1>Django Feed Me</h1>
 
+<p><a href="https://travis-ci.org/dstegelman/django-feedme"><img src="https://travis-ci.org/dstegelman/django-feedme.png?branch=master" alt="Build Status"></a></p>
+
 <p>Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
 and parses them in an easy to read interface.  This is currently in development.  The app works as POC using the Django
-Admin.  A seperate interface for adding feeds is coming down in the pipeline.</p>
+Admin.  A separate interface for adding feeds is coming down in the pipeline.</p>
 
 <p><img src="http://cl.ly/image/0j2z0y0K1e2e/Screen%20Shot%202013-04-27%20at%209.54.10%20AM.png" alt="image"></p>
 
@@ -55,15 +57,46 @@ Admin.  A seperate interface for adding feeds is coming down in the pipeline.</p
 
 <p>Add <code>feedme</code> to your installed apps.  Add route a url to <code>feedme.urls</code></p>
 
+<p>Make sure to syncdb or migrate the app:</p>
+
+<pre><code>python manage.py syncdb
+python manage.py migrate
+</code></pre>
+
 <p>If you want to use Celery for fetching (Recommended) then add:</p>
 
 <pre><code>FEED_UPDATE_CELERY = True
 </code></pre>
 
-<p>to your settings file.</p>
+<p>to your settings file.  Make sure you've installed and configured Celery properly.  The syntax used should be good
+for both Celery 2 and 3.</p>
 
 <p>This app bundles static and works out of the box with django static files.  If you aren't collecting static
 you'll need to copy the static directory to where ever you serve static from.</p>
+
+<h2>Dependencies</h2>
+
+<p>Feedme also requires the use of the django-bootstrap-static library for some static files.  It is bundled in setup.py so by installing this package
+it should already be downloaded to your machine.  In order to have the bootstrap files picked up by your static files hanlder, you'll need to add
+<code>bootstrap</code> to installed apps.  This will alow Django's static files to pick up the boostrap files.</p>
+
+<h2>Celery Beat</h2>
+
+<p>To make use of the Celery beat schedule to automatically update feeds at given intervals, open your settings file and
+enter something like the following:</p>
+
+<pre><code>import datetime
+
+
+CELERYBEAT_SCHEDULE = {
+    "feed-updates": {
+        "task": "update_all_feeds",
+        "schedule": datetime.timedelta(hours=1),
+        },
+    }
+</code></pre>
+
+<p>More documentation for Celery can be found at the CeleryProject.</p>
 
 <h2>Contributions</h2>
 
@@ -71,7 +104,7 @@ you'll need to copy the static directory to where ever you serve static from.</p
 
 <h2>Documentation</h2>
 
-<p>Docs are coming soon on RTD.  For now please refer to this file and the Wiki/Issues in this project.</p>
+<p>This document and more formal documentation at <a href="http://django-feedme.readthedocs.org/en/latest/">http://django-feedme.readthedocs.org/en/latest/</a></p>
 
 <h2>Additional Planned Features</h2>
 
@@ -81,7 +114,9 @@ you'll need to copy the static directory to where ever you serve static from.</p
 <li>Mark all or some feeds as read/unread</li>
 <li>Look and Feel updates</li>
 <li>Tests</li>
-</ul>
+</ul><h2>Questions/Comments/Hate Mail?</h2>
+
+<p>Drop an issue in Github and I'll be sure to find it.</p>
       </section>
 
     </div>
