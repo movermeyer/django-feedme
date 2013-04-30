@@ -70,7 +70,7 @@ Please place all bug reports in Github Issues.  Pull requests are welcome and en
 Documentation
 -------------
 
-Docs are coming soon on RTD.  For now please refer to this file and the Wiki/Issues in this project.
+This document and more formal documentation at http://django-feedme.readthedocs.org/en/latest/
 
 
 Additional Planned Features
