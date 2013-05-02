@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='django-feedme',
-    version='0.3.1',
+    version='0.3.2',
     packages=['feedme', 'feedme.migrations'],
     zip_safe = False,
     include_package_data=True,
@@ -21,5 +21,5 @@ setup(
         'Programming Language :: Python :: 2.7',
         "Framework :: Django",
         ],
-    install_requires = ['feedparser==5.1.3', 'django-bootstrap-static==2.3.1', 'hadrian==1.1.5']
+    install_requires = ['feedparser>=5.1.3,<6.0', 'django-bootstrap-static>=2.0', 'hadrian>=1.1']
     )
