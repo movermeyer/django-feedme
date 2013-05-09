@@ -1,10 +1,13 @@
-from django.views.generic import ListView, DetailView
-from django.conf import settings
+from django.views.generic import ListView, FormView, CreateView
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from infuse.auth.permissions import LoginRequiredMixin
 
 from .models import Feed, FeedItem, Category
-from .forms import AddFeedForm
+from .forms import AddFeedForm, ImportFeedForm
+from .google_takeout import GoogleReaderTakeout
+from .mixins import AjaxableResponseMixin
 
 
 class FeedList(LoginRequiredMixin, ListView):
@@ -40,3 +43,28 @@ class FeedList(LoginRequiredMixin, ListView):
 
         return context
 
+
+class ImportView(LoginRequiredMixin, FormView):
+    template_name = 'feedme/takeout_form.html'
+    form_class = ImportFeedForm
+    success_url = 'feedme-feed-list'
+
+    def get_context_data(self, **kwargs):
+        context = super(ImportView, self).get_context_data(**kwargs)
+        context['add_form'] = AddFeedForm()
+        return context
+
+    def form_valid(self, form):
+        takeout = GoogleReaderTakeout(self.request.FILES['archive'])
+        for data in takeout.subscriptions():
+            Feed.objects.get_or_create(
+                url=data['xmlUrl'], title=data['title'],
+                user=self.request.user, last_update=None,
+                category=form.cleaned_data['category']
+            )
+        return HttpResponseRedirect(reverse(self.get_success_url()))
+
+
+class AddView(LoginRequiredMixin, AjaxableResponseMixin, CreateView):
+    form_class = AddFeedForm
+    model = Feed

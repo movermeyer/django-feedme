@@ -31,5 +31,3 @@ class FeedItemManager(Manager):
 
     def read(self):
         return self.get_query_set().read()
-
-

@@ -1,10 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='django-feedme',
     version='0.3.2',
-    packages=['feedme', 'feedme.migrations'],
     zip_safe = False,
+    packages=find_packages(exclude=['demo']),
     include_package_data=True,
     url='http://github.com/dstegelman/django-feedme',
     license='MIT',
@@ -20,6 +20,12 @@ setup(
         "Programming Language :: Python",
         'Programming Language :: Python :: 2.7',
         "Framework :: Django",
-        ],
-    install_requires = ['feedparser>=5.1.3,<6.0', 'django-bootstrap-static>=2.0', 'hadrian>=1.1']
-    )
+    ],
+    install_requires=[
+        'feedparser==5.1.3,<6.0',
+        'django-bootstrap-static>=2.0',
+        'hadrian>=1.1',
+        'lxml',
+    ]
+)
+
