@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-feedme',
-    version='0.3.2',
+    version='0.3.3',
     zip_safe = False,
     packages=find_packages(exclude=['demo']),
     include_package_data=True,
