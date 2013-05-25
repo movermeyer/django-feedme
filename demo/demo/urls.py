@@ -3,9 +3,7 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-urlpatterns = patterns(
-    '',
-    url(r'', include('social_auth.urls')),
+urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url('', include('feedme.urls')),
 )

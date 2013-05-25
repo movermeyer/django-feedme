@@ -69,7 +69,12 @@
                   {% if request.user.is_authenticated %}
                     Logged in as
                     <a href="#" class="navbar-link">
-                      {{ request.user|title }}
+                        {% if request.user.first_name and request.user.last_name %}
+                        {{ request.user.first_name }} {{ request.user.last_name }}
+                        {% else %}
+                        {{ request.user.username }}
+                        {% endif %}
+                      
                     </a>
                   {% else %}
                     <a href="{% url auth_login %}" class="navbar-link">
