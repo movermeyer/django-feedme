@@ -26,6 +26,7 @@ setup(
         'django-bootstrap-static>=2.0',
         'hadrian>=1.1',
         'lxml',
+        'django-infuse>=0.3',
     ]
 )
 
