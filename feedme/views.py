@@ -1,3 +1,5 @@
+import logging
+
 from django.views.generic import ListView, FormView, CreateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -9,6 +11,7 @@ from .forms import AddFeedForm, ImportFeedForm
 from .google_takeout import GoogleReaderTakeout
 from .mixins import AjaxableResponseMixin
 
+logger = logging.getLogger(__name__)
 
 class FeedList(LoginRequiredMixin, ListView):
     """
@@ -57,10 +60,17 @@ class ImportView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         takeout = GoogleReaderTakeout(self.request.FILES['archive'])
         for data in takeout.subscriptions():
+            if not data['xmlUrl']:
+                logger.info("Found feed without url. Dumping %s." % data['title'])
+                continue
+            if data['category']:
+                category, created = Category.objects.get_or_create(name=data['category'])
+            else:
+                category = form.cleaned_data['category']
             Feed.objects.get_or_create(
                 url=data['xmlUrl'], title=data['title'],
                 user=self.request.user, last_update=None,
-                category=form.cleaned_data['category']
+                category=category
             )
         return HttpResponseRedirect(reverse(self.get_success_url()))
 
