@@ -64,16 +64,22 @@ class Feed(models.Model):
 
     def _update_feed(self):
         # Update the last update field
+        feed = feedparser.parse(self.url)
         self.last_update = datetime.date.today()
+        if feed.feed.has_key("link"):
+            self.link = feed.feed.link
+        else:
+            self.link = ""
         self.save()
-        for item in feedparser.parse(self.url).entries[:10]:
-            # Search for an existing item
+        for item in feed.entries[:10]:
+            # The RSS spec doesn't require the guid field so fall back on link
             if item.has_key("id"):
                 guid = item.id
             else:
                 guid = item.link
+
+            # Search for an existing item
             try:
-                # FIXME(halldor): this should use the feed item UID
                 FeedItem.objects.get(guid=guid)
             except FeedItem.DoesNotExist:
                 # Create it.
