@@ -38,7 +38,7 @@ class FeedList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(FeedList, self).get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
+        context['categories'] = Category.objects.filter(user=self.request.user)
         context['add_form'] = AddFeedForm()
 
         return context
@@ -52,6 +52,7 @@ class ImportView(LoginRequiredMixin, FormView):
     def get_context_data(self, **kwargs):
         context = super(ImportView, self).get_context_data(**kwargs)
         context['add_form'] = AddFeedForm()
+        context['form'] = ImportFeedForm(user=self.request.user)
         return context
 
     def form_valid(self, form):
