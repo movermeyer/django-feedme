@@ -36,26 +36,13 @@ class GoogleReaderTakeout(object):
         grab = self._load_xml_file('subscriptions')
         data = []
         for element in grab.xpath('//opml/body/outline'):
-            if element.get('type') is None:
-                # if type is none it's a category
-                for child in element.getchildren():
-                    data.append({
-                        'text': child.get('text'),
-                        'title': child.get('title'),
-                        'type': child.get('type'),
-                        'xmlUrl': child.get('xmlUrl'),
-                        'htmlUrl': child.get('htmlUrl'),
-                        'category': element.get('title'),
-                    })
-            else:
-                data.append({
-                    'text': element.get('text'),
-                    'title': element.get('title'),
-                    'type': element.get('type'),
-                    'xmlUrl': element.get('xmlUrl'),
-                    'htmlUrl': element.get('htmlUrl'),
-                    'category': None,
-                })
+            data.append({
+                'text': element.get('text'),
+                'title': element.get('title'),
+                'type': element.get('type'),
+                'xmlUrl': element.get('xmlUrl'),
+                'htmlUrl': element.get('htmlUrl'),
+            })
         return data
 
     def __getattr__(self):
