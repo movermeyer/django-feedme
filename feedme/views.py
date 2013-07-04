@@ -9,7 +9,6 @@ from .forms import AddFeedForm, ImportFeedForm
 from .google_takeout import GoogleReaderTakeout
 from .mixins import AjaxableResponseMixin
 
-logger = logging.getLogger(__name__)
 
 class FeedList(LoginRequiredMixin, ListView):
     """
