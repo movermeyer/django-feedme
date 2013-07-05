@@ -1,5 +1,7 @@
 import datetime
 
+from time import mktime
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -29,8 +31,15 @@ class Category(models.Model):
 
 
 class Feed(models.Model):
-    url = models.CharField(blank=True, max_length=450, unique=True)
+    class Meta:
+        unique_together = (
+            ("url", "user"),
+        )
+
+    link = models.CharField(blank=True, max_length=450)
+    url = models.CharField(blank=True, max_length=450)
     title = models.CharField(blank=True, null=True, max_length=250)
+
     category = models.ForeignKey(Category, blank=True, null=True)
     user = models.ForeignKey(User, blank=True, null=True)
     last_update = models.DateField(blank=True, null=True, editable=False)
@@ -55,15 +64,34 @@ class Feed(models.Model):
 
     def _update_feed(self):
         # Update the last update field
+        feed = feedparser.parse(self.url)
         self.last_update = datetime.date.today()
+        if feed.feed.has_key("link"):
+            self.link = feed.feed.link
+        else:
+            self.link = ""
         self.save()
-        for item in feedparser.parse(self.url).entries[:10]:
+        for item in feed.entries[:10]:
+            # The RSS spec doesn't require the guid field so fall back on link
+            if item.has_key("id"):
+                guid = item.id
+            else:
+                guid = item.link
+
             # Search for an existing item
             try:
-                FeedItem.objects.get(title=item.title)
+                FeedItem.objects.get(guid=guid)
             except FeedItem.DoesNotExist:
                 # Create it.
-                feed_item = FeedItem(title=item.title, link=item.link, content=item.description, feed=self)
+                if item.has_key("published_parsed"):
+                    pub_date = datetime.datetime.fromtimestamp(mktime(item.published_parsed))
+                elif item.has_key("updated_parsed"):
+                    pub_date = datetime.datetime.fromtimestamp(mktime(item.updated_parsed))
+                else:
+                    pub_date = datetime.datetime.now()
+
+                feed_item = FeedItem(title=item.title, link=item.link, content=item.description,
+                                     guid=guid, pub_date=pub_date, feed=self)
                 feed_item.save()
 
     def _update_processor(self):
@@ -95,6 +123,8 @@ class FeedItem(models.Model):
     content = models.TextField(blank=True)
     feed = models.ForeignKey(Feed, blank=True, null=True)
     read = models.BooleanField()
+    guid = models.CharField(max_length=255)
+    pub_date = models.DateTimeField()
 
     objects = FeedItemManager()
 
