@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'bootstrap',
     'feedme',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
