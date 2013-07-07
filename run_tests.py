@@ -44,5 +44,9 @@ else:
 from django.test.simple import DjangoTestSuiteRunner
 test_runner = DjangoTestSuiteRunner(verbosity=1)
 failures = test_runner.run_tests(['feedme', ])
+
+from django.core.management import call_command
+call_command('validate')
+
 if failures:
     sys.exit(failures)
