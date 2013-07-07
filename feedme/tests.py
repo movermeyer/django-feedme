@@ -8,7 +8,7 @@ from feedme.models import Feed, FeedItem
 class FeedMeTestCase(TestCase):
 
     def test_update_feed(self):
-        feed = Feed(url='http://derek.stegelman.com/blog/feed/')
+        feed = Feed(url='http://rss.cnn.com/rss/cnn_topstories.rss')
         feed.save()
         feed.update(force=True)
         self.assertTrue(FeedItem.objects.all().count(), 10)
@@ -25,7 +25,7 @@ class FeedMeTestCase(TestCase):
         user1.save()
         user2.save()
 
-        feed_url = 'http://derek.stegelman.com/blog/feed/'
+        feed_url = 'http://rss.cnn.com/rss/cnn_topstories.rss'
         feed1 = Feed(user=user1, url=feed_url)
         feed2 = Feed(user=user2, url=feed_url)
         try:
