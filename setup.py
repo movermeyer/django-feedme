@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-feedme',
-    version='0.3.2',
+    version='1.0',
     zip_safe = False,
     packages=find_packages(exclude=['demo']),
     include_package_data=True,
@@ -23,7 +23,7 @@ setup(
     ],
     install_requires=[
         'feedparser==5.1.3,<6.0',
-        'django-bootstrap-static>=2.0',
+        'django-bootstrap-static>=2.0,<3.0',
         'hadrian>=1.1',
         'lxml',
         'django-infuse>=0.3',

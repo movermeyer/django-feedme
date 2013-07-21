@@ -9,9 +9,6 @@ Admin.  A separate interface for adding feeds is coming down in the pipeline.
 
 ![image](http://cl.ly/image/0j2z0y0K1e2e/Screen%20Shot%202013-04-27%20at%209.54.10%20AM.png)
 
-This project is not quite ready for Django 1.5 yet..
-
-
 Installation
 ------------
 
@@ -39,6 +36,8 @@ you'll need to copy the static directory to where ever you serve static from.
 
 Dependencies
 ------------
+
+As of FeedMe 1.0 feedme requires Django 1.5 and above.
 
 Feedme also requires the use of the django-bootstrap-static library for some static files.  It is bundled in setup.py so by installing this package
 it should already be downloaded to your machine.  In order to have the bootstrap files picked up by your static files hanlder, you'll need to add
