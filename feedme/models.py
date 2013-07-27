@@ -31,18 +31,17 @@ class Category(models.Model):
 
 
 class Feed(models.Model):
+    link = models.CharField(blank=True, max_length=450)
+    url = models.CharField(blank=True, max_length=450)
+    title = models.CharField(blank=True, null=True, max_length=250)
+    category = models.ForeignKey(Category, blank=True, null=True)
+    user = models.ForeignKey(User, blank=True, null=True)
+    last_update = models.DateField(blank=True, null=True, editable=False)
+
     class Meta:
         unique_together = (
             ("url", "user"),
         )
-
-    link = models.CharField(blank=True, max_length=450)
-    url = models.CharField(blank=True, max_length=450)
-    title = models.CharField(blank=True, null=True, max_length=250)
-
-    category = models.ForeignKey(Category, blank=True, null=True)
-    user = models.ForeignKey(User, blank=True, null=True)
-    last_update = models.DateField(blank=True, null=True, editable=False)
 
     def __unicode__(self):
         return self.url
@@ -63,6 +62,8 @@ class Feed(models.Model):
         return FeedItem.objects.filter(feed=self).un_read().count()
 
     def _update_feed(self):
+        """ Perform a feed update.
+        """
         # Update the last update field
         feed = feedparser.parse(self.url)
         self.last_update = datetime.date.today()
@@ -133,4 +134,10 @@ class FeedItem(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def mark_as_read(self):
+        """ Mark an item as read.
+        """
+        self.read = True
+        self.save()
 

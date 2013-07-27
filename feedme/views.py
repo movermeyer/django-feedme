@@ -1,5 +1,6 @@
 import logging
 
+from django.shortcuts import redirect
 from django.views.generic import ListView, FormView, CreateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -12,6 +13,7 @@ from .google_takeout import GoogleReaderTakeout
 from .mixins import AjaxableResponseMixin
 
 logger = logging.getLogger(__name__)
+
 
 class FeedList(LoginRequiredMixin, ListView):
     """
@@ -73,9 +75,18 @@ class ImportView(LoginRequiredMixin, FormView):
                 user=self.request.user, last_update=None,
                 category=category
             )
-        return HttpResponseRedirect(reverse(self.get_success_url()))
+        return redirect(reverse(self.get_success_url()))
 
 
 class AddView(LoginRequiredMixin, AjaxableResponseMixin, CreateView):
     form_class = AddFeedForm
     model = Feed
+
+def mark_all_as_read(request):
+    """ Marks all items for a user as read.
+    """
+    items = FeedItem.objects.my_feed_items(request.user).un_read()
+    for item in items:
+        item.mark_as_read()
+
+    return redirect('feedme-feed-list')

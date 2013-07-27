@@ -11,7 +11,16 @@ class FeedMeTestCase(TestCase):
         feed = Feed(url='http://rss.cnn.com/rss/cnn_topstories.rss')
         feed.save()
         feed.update(force=True)
-        self.assertTrue(FeedItem.objects.all().count(), 10)
+        self.assertEqual(FeedItem.objects.all().count(), 10)
+
+    def test_mark_as_read(self):
+        feed = Feed(url='http://rss.cnn.com/rss/cnn_topstories.rss')
+        feed.save()
+        feed.update(force=True)
+        self.assertEqual(FeedItem.objects.un_read().count(), 10)
+        for item in FeedItem.objects.un_read():
+            item.mark_as_read()
+        self.assertEqual(FeedItem.objects.un_read().count(), 0)
 
     def test_me(self):
         self.assertTrue(True, True)
