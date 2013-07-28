@@ -3,7 +3,7 @@ Django Feed Me
 
 [![Build Status](https://travis-ci.org/dstegelman/django-feedme.png?branch=master)](https://travis-ci.org/dstegelman/django-feedme)
 [![Pypi Version](https://pypip.in/v/django-feedme/badge.png)](https://crate.io/packages/django-feedme/)
-[![Downloads](https://pypip.in/d/staticserve/badge.png)](https://crate.io/packages/django-feedme/)
+
 
 
 Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
