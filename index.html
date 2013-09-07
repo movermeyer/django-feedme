@@ -1,39 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>Django-feedme by dstegelman</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Django-feedme by dstegelman</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>Django-feedme</h1>
+        <p>Google Reader replacement app in Python/Django</p>
 
-        <header>
-          <h1>Django-feedme</h1>
-          <h2>Google Reader replacement app in Python/Django</h2>
-        </header>
+        <p class="view"><a href="https://github.com/dstegelman/django-feedme">View the Project on GitHub <small>dstegelman/django-feedme</small></a></p>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/dstegelman/django-feedme/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/dstegelman/django-feedme/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/dstegelman/django-feedme" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
 
-        <hr>
+        <ul>
+          <li><a href="https://github.com/dstegelman/django-feedme/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dstegelman/django-feedme/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dstegelman/django-feedme">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="django-feed-me" class="anchor" href="#django-feed-me"><span class="octicon octicon-link"></span></a>Django Feed Me</h1>
 
-        <section id="main_content">
-          <h1>Django Feed Me</h1>
-
-<p><a href="https://travis-ci.org/dstegelman/django-feedme"><img src="https://travis-ci.org/dstegelman/django-feedme.png?branch=master" alt="Build Status"></a></p>
+<p><a href="https://travis-ci.org/dstegelman/django-feedme"><img src="https://travis-ci.org/dstegelman/django-feedme.png?branch=master" alt="Build Status"></a>
+<a href="https://crate.io/packages/django-feedme/"><img src="https://pypip.in/v/django-feedme/badge.png" alt="Pypi Version"></a></p>
 
 <p>Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
 and parses them in an easy to read interface.  This is currently in development.  The app works as POC using the Django
@@ -41,7 +40,8 @@ Admin.  A separate interface for adding feeds is coming down in the pipeline.</p
 
 <p><img src="http://cl.ly/image/0j2z0y0K1e2e/Screen%20Shot%202013-04-27%20at%209.54.10%20AM.png" alt="image"></p>
 
-<h2>Installation</h2>
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>To install FeedMe simply:</p>
 
@@ -67,13 +67,17 @@ for both Celery 2 and 3.</p>
 <p>This app bundles static and works out of the box with django static files.  If you aren't collecting static
 you'll need to copy the static directory to where ever you serve static from.</p>
 
-<h2>Dependencies</h2>
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>As of FeedMe 1.0 feedme requires Django 1.5 and above.</p>
 
 <p>Feedme also requires the use of the django-bootstrap-static library for some static files.  It is bundled in setup.py so by installing this package
 it should already be downloaded to your machine.  In order to have the bootstrap files picked up by your static files hanlder, you'll need to add
 <code>bootstrap</code> to installed apps.  This will alow Django's static files to pick up the boostrap files.</p>
 
-<h2>Celery Beat</h2>
+<h2>
+<a name="celery-beat" class="anchor" href="#celery-beat"><span class="octicon octicon-link"></span></a>Celery Beat</h2>
 
 <p>To make use of the Celery beat schedule to automatically update feeds at given intervals, open your settings file and
 enter something like the following:</p>
@@ -91,15 +95,18 @@ CELERYBEAT_SCHEDULE = {
 
 <p>More documentation for Celery can be found at the CeleryProject.</p>
 
-<h2>Contributions</h2>
+<h2>
+<a name="contributions" class="anchor" href="#contributions"><span class="octicon octicon-link"></span></a>Contributions</h2>
 
 <p>Please place all bug reports in Github Issues.  Pull requests are welcome and encouraged!!</p>
 
-<h2>Documentation</h2>
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <p>This document and more formal documentation at <a href="http://django-feedme.readthedocs.org/en/latest/">http://django-feedme.readthedocs.org/en/latest/</a></p>
 
-<h2>Additional Planned Features</h2>
+<h2>
+<a name="additional-planned-features" class="anchor" href="#additional-planned-features"><span class="octicon octicon-link"></span></a>Additional Planned Features</h2>
 
 <ul>
 <li>Import feeds from Google Reader</li>
@@ -107,18 +114,17 @@ CELERYBEAT_SCHEDULE = {
 <li>Mark all or some feeds as read/unread</li>
 <li>Look and Feel updates</li>
 <li>Tests</li>
-</ul><h2>Questions/Comments/Hate Mail?</h2>
+</ul><h2>
+<a name="questionscommentshate-mail" class="anchor" href="#questionscommentshate-mail"><span class="octicon octicon-link"></span></a>Questions/Comments/Hate Mail?</h2>
 
 <p>Drop an issue in Github and I'll be sure to find it.</p>
-        </section>
-
-        <footer>
-          Django-feedme is maintained by <a href="https://github.com/dstegelman">dstegelman</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/dstegelman">dstegelman</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
