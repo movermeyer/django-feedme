@@ -1,3 +1,5 @@
+import datetime
+
 from django.db.models.query import QuerySet
 from django.db.models import Manager
 
@@ -15,6 +17,9 @@ class FeedItemQuerySet(QuerySet):
     def read(self):
         return self.filter(read=True)
 
+    def yesterday(self):
+        return self.filter(date_fetched=datetime.date.today() - datetime.timedelta(1))
+
 
 class FeedItemManager(Manager):
     def get_query_set(self):
@@ -31,3 +36,6 @@ class FeedItemManager(Manager):
 
     def read(self):
         return self.get_query_set().read()
+
+    def yesterday(self):
+        return self.get_query_set().yesterday()

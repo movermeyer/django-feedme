@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'bootstrap',
     'feedme',
     'south',
+    'mailqueue',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -179,3 +180,5 @@ LOGGING = {
 }
 
 LOGIN_URL = '/admin/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+FEEDME_FROM_EMAIL = 'derek@stegelman.com'

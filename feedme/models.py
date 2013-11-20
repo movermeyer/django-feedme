@@ -127,6 +127,7 @@ class FeedItem(models.Model):
     feed = models.ForeignKey(Feed, blank=True, null=True)
     read = models.BooleanField()
     guid = models.CharField(max_length=255)
+    date_fetched = models.DateField(auto_created=True, auto_now_add=True, editable=True)
     pub_date = models.DateTimeField()
 
     objects = FeedItemManager()
