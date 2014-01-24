@@ -5,13 +5,13 @@ Django Feed Me
 [![Pypi Version](https://pypip.in/v/django-feedme/badge.png)](https://crate.io/packages/django-feedme/)
 
 
-
 Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
 and parses them in an easy to read interface.  This is currently in development.  The app works as POC using the Django
 Admin.  A separate interface for adding feeds is coming down in the pipeline.
 
 ![image](http://cl.ly/image/0j2z0y0K1e2e/Screen%20Shot%202013-04-27%20at%209.54.10%20AM.png)
 
+<<<<<<< HEAD
 Installation
 ------------
 
@@ -71,6 +71,8 @@ enter something like the following:
         }
 
 More documentation for Celery can be found at the CeleryProject.
+=======
+>>>>>>> master
 
 Contributions
 -------------
