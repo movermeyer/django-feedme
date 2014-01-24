@@ -11,7 +11,6 @@ Admin.  A separate interface for adding feeds is coming down in the pipeline.
 
 ![image](http://cl.ly/image/0j2z0y0K1e2e/Screen%20Shot%202013-04-27%20at%209.54.10%20AM.png)
 
-<<<<<<< HEAD
 Installation
 ------------
 
@@ -71,8 +70,6 @@ enter something like the following:
         }
 
 More documentation for Celery can be found at the CeleryProject.
-=======
->>>>>>> master
 
 Contributions
 -------------
