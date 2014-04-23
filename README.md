@@ -2,6 +2,8 @@ Django Feed Me
 ==============
 
 [![Build Status](https://travis-ci.org/dstegelman/django-feedme.png?branch=master)](https://travis-ci.org/dstegelman/django-feedme)
+[![Pypi Version](https://pypip.in/v/django-feedme/badge.png)](https://crate.io/packages/django-feedme/)
+
 
 Django Feed Me is a replacement for Google Reader.  It keeps track of your feeds, fetches the RSS feeds
 and parses them in an easy to read interface.  This is currently in development.  The app works as POC using the Django
@@ -33,6 +35,13 @@ for both Celery 2 and 3.
 
 This app bundles static and works out of the box with django static files.  If you aren't collecting static
 you'll need to copy the static directory to where ever you serve static from.
+
+You need to provide a login view that Feedme can use to provide a login link when the user isn't logged in.  This is
+referenced as ``auth_login`` by name.
+
+    url(r'^something/$', your.login.view, name='auth_login')
+
+You will also need to provide a LOGIN_URL as well.
 
 Dependencies
 ------------

@@ -125,7 +125,7 @@ class FeedItem(models.Model):
     link = models.URLField(blank=True)
     content = models.TextField(blank=True)
     feed = models.ForeignKey(Feed, blank=True, null=True)
-    read = models.BooleanField()
+    read = models.BooleanField(default=False)
     guid = models.CharField(max_length=255)
     date_fetched = models.DateField(auto_created=True, auto_now_add=True, editable=True)
     pub_date = models.DateTimeField()

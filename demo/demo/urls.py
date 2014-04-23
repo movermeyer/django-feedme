@@ -5,5 +5,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url('', include('feedme.urls')),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='auth_login'),
+    url(r'^feedme/', include('feedme.urls')),
 )
