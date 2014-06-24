@@ -86,9 +86,7 @@ This document and more formal documentation at http://django-feedme.readthedocs.
 Additional Planned Features
 ---------------------------
 
-* Import feeds from Google Reader
 * Add and manage feeds from the front end (rather than Django Admin)
-* Mark all or some feeds as read/unread
 * Look and Feel updates
 * Tests
 

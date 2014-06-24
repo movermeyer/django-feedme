@@ -181,4 +181,4 @@ LOGGING = {
 
 LOGIN_URL = '/admin/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-FEEDME_FROM_EMAIL = 'derek@stegelman.com'
+FEEDME_FROM_EMAIL = 'test@email.com'
