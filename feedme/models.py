@@ -144,21 +144,3 @@ class FeedItem(models.Model):
         self.read = True
         self.save()
 
-
-def daily_digest(user):
-    """ Send a daily digest of all unread
-     feed items.  Includes more than just the day
-     before.
-    """
-    subject, from_email, to = 'FeedMe Daily Digest', getattr(settings, 'FEEDME_FROM_EMAIL', 'feedme@localhost'), user.email
-
-    html_template = loader.get_template('feedme/mail/digest.html')
-    text_template = loader.get_template('feedme/mail/digest.txt')
-
-    items = FeedItem.objects.my_feed_items(user).un_read()
-    context_dict = {'items': items}
-    context = Context(context_dict)
-    html_content = html_template.render(context)
-    msg = EmailMultiAlternatives()
-    EmailMultiAlternatives(subject, text_content, from_email, [to])
-    msg.attach_alternative(html_content, "text/html")
