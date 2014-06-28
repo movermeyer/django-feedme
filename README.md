@@ -71,6 +71,29 @@ enter something like the following:
 
 More documentation for Celery can be found at the CeleryProject.
 
+Feedme Digest
+-------------
+
+You can enable the daily email digest of new feed items by setting up the from email setting
+and enabling the Celery Beat task.::
+
+
+    FEEDME_FROM_EMAIL = 'test@email.com'
+
+
+and add the Task::
+
+    import datetime
+
+
+    CELERYBEAT_SCHEDULE = {
+        "feedme-digest": {
+        "task": "send_digest",
+        "schedule": crontab(minute=0, hour=0),
+            },
+        }
+
+
 Contributions
 -------------
 
@@ -86,9 +109,7 @@ This document and more formal documentation at http://django-feedme.readthedocs.
 Additional Planned Features
 ---------------------------
 
-* Import feeds from Google Reader
 * Add and manage feeds from the front end (rather than Django Admin)
-* Mark all or some feeds as read/unread
 * Look and Feel updates
 * Tests
 

@@ -5,6 +5,8 @@ from time import mktime
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template import loader, Context
 
 from hadrian.utils.slugs import unique_slugify
 
@@ -125,6 +127,7 @@ class FeedItem(models.Model):
     feed = models.ForeignKey(Feed, blank=True, null=True)
     read = models.BooleanField(default=False)
     guid = models.CharField(max_length=255)
+    date_fetched = models.DateField(auto_created=True, auto_now_add=True, editable=True)
     pub_date = models.DateTimeField()
 
     objects = FeedItemManager()
