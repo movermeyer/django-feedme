@@ -27,7 +27,7 @@ setup(
         'hadrian>=1.1',
         'lxml',
         'django-infuse>=0.3',
-        'django-mailqueue>=2.0,<3.0'
+        'django-mail-queue>=2.0,<3.0'
     ]
 )
 
