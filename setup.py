@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-feedme',
-    version='1.2.0',
-    zip_safe = False,
+    version='1.2.1',
+    zip_safe=False,
     packages=find_packages(exclude=['demo']),
     include_package_data=True,
     url='http://github.com/dstegelman/django-feedme',
@@ -27,6 +27,7 @@ setup(
         'hadrian>=1.1',
         'lxml',
         'django-infuse>=0.3',
+        'django-mailqueue>=2.0,<3.0'
     ]
 )
 

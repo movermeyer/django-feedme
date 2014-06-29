@@ -1,5 +1,6 @@
 from celery.task import task
 
+
 @task(name='update_feeds')
 def update_feed(feed):
     feed._update_feed()

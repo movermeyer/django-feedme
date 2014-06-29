@@ -1,8 +1,18 @@
+"""
+Django Feedme
+
+Views.py
+
+Author: Derek Stegelman
+"""
 import logging
 
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import ListView, FormView, CreateView
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
 
 from infuse.auth.permissions import LoginRequiredMixin
 
@@ -121,3 +131,18 @@ def mark_all_as_read(request):
         item.mark_as_read()
 
     return redirect('feedme-feed-list')
+
+
+@csrf_exempt
+def mark_as_read(request):
+    """
+    Ajax method to mark an item as being read.
+    :param request:
+    :return AJAX/HTTP Response of 200:
+    """
+    if request.method == "POST":
+        feed_item = get_object_or_404(FeedItem, pk=request.POST.get('feed_item_id'))
+        feed_item.read = True
+        feed_item.save()
+
+    return HttpResponse()

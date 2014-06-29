@@ -6,6 +6,9 @@ from feedme.models import Feed
 
 
 class Command(BaseCommand):
+    """
+    Update all feed objects manually.
+    """
     help = 'Update all feeds'
 
     def handle(self, *args, **options):

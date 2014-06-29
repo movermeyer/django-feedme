@@ -1,7 +1,14 @@
+"""
+Django Feedme
+
+Urls.py
+
+Author: Derek Stegelman
+"""
+
 from django.conf.urls import patterns, url
 
-from .views import FeedList, ImportView, AddView, mark_all_as_read
-from .ajax import mark_as_read
+from .views import FeedList, ImportView, AddView, mark_all_as_read, mark_as_read
 
 urlpatterns = patterns('',
     url(r'^$', FeedList.as_view(), name="feedme-feed-list"),

@@ -1,3 +1,10 @@
+"""
+Django Feedme
+
+Admin.py
+
+Author: Derek Stegelman
+"""
 from django.contrib import admin
 
 from .models import Feed, FeedItem, Category

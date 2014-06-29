@@ -1,3 +1,10 @@
+"""
+Django Feedme
+
+Digest.py
+
+Author: Derek Stegelman
+"""
 from django.template import loader, Context
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -8,6 +15,12 @@ from .models import FeedItem
 
 
 def send_digest():
+    """
+    Send the daily digest for all users.  Currently
+    this requires mailman to work.
+    @todo - Remove the dependency on MailQueue
+    :return:
+    """
     text_template = loader.get_template('feedme/mail/digest.txt')
     html_template = loader.get_template('feedme/mail/digest.html')
     subject = 'Daily FeedMe Digest'
