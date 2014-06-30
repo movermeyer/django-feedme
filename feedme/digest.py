@@ -32,6 +32,6 @@ def send_digest():
             text_content = text_template.render(context)
             html_content = html_template.render(context)
             msg = EmailMultiAlternatives(subject, text_content, from_email, [user.email])
-		    msg.attach_alternative(html_content, "text/html")
-		    msg.send()
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
 
