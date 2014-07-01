@@ -24,7 +24,6 @@ setup(
     install_requires=[
         'feedparser==5.1.3,<6.0',
         'django-bootstrap-static>=2.0,<3.0',
-        'hadrian>=1.1',
         'lxml',
         'django-infuse>=0.3'
     ]
