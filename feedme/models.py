@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 
-from hadrian.utils.slugs import unique_slugify
+from feedme.utils import unique_slugify
 
 import feedparser
 
