@@ -6,6 +6,10 @@ from feedme import digest
 
 
 class Command(BaseCommand):
+    """
+    Management command to send the daily digest.  Typically
+    called by Celery.
+    """
     help = 'Send Digest'
 
     def handle(self, *args, **options):

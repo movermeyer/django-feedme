@@ -1,3 +1,10 @@
+"""
+Django Feedme
+
+Managers.py
+
+Author: Derek Stegelman
+"""
 import datetime
 
 from django.db.models.query import QuerySet

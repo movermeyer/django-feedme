@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 __author__ = 'derek'
-import os, sys
+import os
+import sys
 from django.conf import settings
 import django
 
