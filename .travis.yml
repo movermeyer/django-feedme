@@ -20,6 +20,7 @@ env:
   - DJANGO_VERSION=Django==1.6.3
   - DJANGO_VERSION=Django==1.6.4
   - DJANGO_VERSION=Django==1.6.5
+  - DJANGO_VERSION=Django==1.7
 
 
 # command to install dependencies
@@ -31,3 +32,9 @@ install:
 
 script:
   - python run_tests.py
+
+
+matrix:
+  exclude:
+    - python: "2.6"
+      env: DJANGO_VERSION=Django==1.7
