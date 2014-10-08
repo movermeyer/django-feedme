@@ -41,7 +41,11 @@ else:
 
 
 
-
+try:
+    # Django 1.7 Requires this.
+    django.setup()
+except AttributeError:
+    pass
 from django.test.simple import DjangoTestSuiteRunner
 test_runner = DjangoTestSuiteRunner(verbosity=1)
 failures = test_runner.run_tests(['feedme', ])
