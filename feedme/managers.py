@@ -33,16 +33,16 @@ class FeedItemManager(Manager):
         return FeedItemQuerySet(self.model, using=self._db)
 
     def category(self, category_slug):
-        return self.get_query_set().category(category_slug)
+        return self.get_queryset().category(category_slug)
 
     def my_feed_items(self, user):
-        return self.get_query_set().my_feed_items(user)
+        return self.get_queryset().my_feed_items(user)
 
     def un_read(self):
-        return self.get_query_set().un_read()
+        return self.get_queryset().un_read()
 
     def read(self):
-        return self.get_query_set().read()
+        return self.get_queryset().read()
 
     def yesterday(self):
-        return self.get_query_set().yesterday()
+        return self.get_queryset().yesterday()
