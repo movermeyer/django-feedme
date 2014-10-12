@@ -29,7 +29,7 @@ class FeedItemQuerySet(QuerySet):
 
 
 class FeedItemManager(Manager):
-    def get_query_set(self):
+    def get_queryset(self):
         return FeedItemQuerySet(self.model, using=self._db)
 
     def category(self, category_slug):
