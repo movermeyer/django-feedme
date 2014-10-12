@@ -47,7 +47,7 @@ install:
 # command to run tests
 
 script:
-  - python runtests.py
+  - python run_tests.py
 
 matrix:
   exclude:
