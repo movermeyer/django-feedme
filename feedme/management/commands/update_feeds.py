@@ -12,5 +12,8 @@ class Command(BaseCommand):
     help = 'Update all feeds'
 
     def handle(self, *args, **options):
+        count = 0
         for feed in Feed.objects.all():
-            feed._update_feed()
+            count += feed._update_feed()
+
+        print('Updated feeds with {num} new entries'.format(num=count))
