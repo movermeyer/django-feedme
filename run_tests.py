@@ -43,11 +43,12 @@ else:
 try:
     # Django 1.7 needs this, but other versions dont.
     django.setup()
+    from django.test.runner import DiscoverRunner
+    test_runner = DiscoverRunner(verbosity=1)
 except AttributeError:
-    pass
+    from django.test.simple import DjangoTestSuiteRunner
+    test_runner = DjangoTestSuiteRunner(verbosity=1)
 
-from django.test.simple import DjangoTestSuiteRunner
-test_runner = DjangoTestSuiteRunner(verbosity=1)
 failures = test_runner.run_tests(['feedme', ])
 
 from django.core.management import call_command
