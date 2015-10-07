@@ -12,7 +12,7 @@ from time import mktime
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
-
+from django.utils import timezone
 
 from feedme.utils import unique_slugify
 
@@ -135,6 +135,8 @@ class Feed(models.Model):
                     pub_date = datetime.datetime.fromtimestamp(mktime(item.updated_parsed))
                 else:
                     pub_date = datetime.datetime.now()
+
+                pub_date = timezone.make_aware(pub_date, timezone.get_current_timezone())
 
                 feed_item = FeedItem(title=item.title, link=item.link, content=item.description,
                                      guid=guid, pub_date=pub_date, feed=self)
