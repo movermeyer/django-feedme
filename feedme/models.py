@@ -140,7 +140,7 @@ class Feed(models.Model):
                                      guid=guid, pub_date=pub_date, feed=self)
                 feed_item.save()
         return counter
-        
+
     def _update_processor(self):
         """
         Kick off the prrocessing of the feeds.  Either update with celery

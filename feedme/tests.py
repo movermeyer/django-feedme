@@ -45,4 +45,3 @@ class FeedMeTestCase(TestCase):
 
         self.assertIsNotNone(feed1.pk)
         self.assertIsNotNone(feed2.pk)
-
