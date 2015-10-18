@@ -17,7 +17,7 @@ from .models import FeedItem
 def send_digest():
     """
     Send the daily digest for all users.  This sends
-    both a .txt and .html version of the email.  
+    both a .txt and .html version of the email.
     :return:
     """
     text_template = loader.get_template('feedme/mail/digest.txt')
@@ -35,4 +35,3 @@ def send_digest():
             msg = EmailMultiAlternatives(subject, text_content, from_email, [user.email])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
-

@@ -63,6 +63,7 @@ install:
 # command to run tests
 
 script:
+  - pep8 feedme
   - python run_tests.py
 
 matrix:

@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 import re
 from django.template.defaultfilters import slugify
 
+
 # http://www.djangosnippets.org/snippets/690/
 def unique_slugify(instance, value, slug_field_name='slug', queryset=None,
                    slug_separator='-'):
