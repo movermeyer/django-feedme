@@ -2,6 +2,6 @@ django-bootstrap-static==2.3.1
 feedparser==5.1.3
 hadrian==1.1.5
 lxml
-django==1.6.1
-south
+django==1.8.1
 django-infuse
+django-mail-queue

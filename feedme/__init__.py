@@ -1,1 +1,1 @@
-__author__ = 'derek'
+default_app_config = 'feedme.apps.FeedMeConfig'

@@ -146,7 +146,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'bootstrap',
     'feedme',
-    'south',
     'mailqueue',
 )
 

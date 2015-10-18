@@ -36,8 +36,24 @@ env:
   - DJANGO_VERSION=Django==1.6.3
   - DJANGO_VERSION=Django==1.6.4
   - DJANGO_VERSION=Django==1.6.5
+  - DJANGO_VERSION=Django==1.6.6
   - DJANGO_VERSION=Django==1.6.7
   - DJANGO_VERSION=Django==1.7
+  - DJANGO_VERSION=Django==1.7.1
+  - DJANGO_VERSION=Django==1.7.2
+  - DJANGO_VERSION=Django==1.7.3
+  - DJANGO_VERSION=Django==1.7.4
+  - DJANGO_VERSION=Django==1.7.5
+  - DJANGO_VERSION=Django==1.7.6
+  - DJANGO_VERSION=Django==1.7.7
+  - DJANGO_VERSION=Django==1.7.8
+  - DJANGO_VERSION=Django==1.7.9
+  - DJANGO_VERSION=Django==1.7.10
+  - DJANGO_VERSION=Django==1.8
+  - DJANGO_VERSION=Django==1.8.1
+  - DJANGO_VERSION=Django==1.8.2
+  - DJANGO_VERSION=Django==1.8.3
+  - DJANGO_VERSION=Django==1.8.4
 
 # command to install dependencies
 install:
@@ -107,3 +123,4 @@ matrix:
       env: DJANGO_VERSION=Django==1.4.14
     - python: "3.4"
       env: DJANGO_VERSION=Django==1.4.15
+
