@@ -23,6 +23,7 @@ import feedparser
 
 from .managers import FeedItemManager
 
+
 @python_2_unicode_compatible
 class Category(models.Model):
     """
@@ -54,7 +55,7 @@ class Category(models.Model):
         return FeedItem.objects.my_feed_items(self.user).category(self.slug).un_read().count()
 
 
-python_2_unicode_compatible
+@python_2_unicode_compatible
 class Feed(models.Model):
     """
     Feed Model
@@ -180,7 +181,7 @@ class Feed(models.Model):
         return ('feedme-feed-list-by-feed', (), {'feed_id': self.id})
 
 
-python_2_unicode_compatible
+@python_2_unicode_compatible
 class FeedItem(models.Model):
     """
     FeedItem Model
