@@ -6,6 +6,7 @@ Urls.py
 Author: Derek Stegelman
 """
 
+from __future__ import unicode_literals
 from django.conf.urls import url
 
 from .views import FeedList, ImportView, AddView, mark_all_as_read, mark_as_read

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import os
 import sys
 from django.conf import settings
@@ -22,8 +21,8 @@ settings.configure(DEBUG=True,
                                    'django.contrib.admin',
                                    'feedme',),
                    USE_TZ=True,
-                   MIDDLEWARE_CLASSES=(('django.middleware.common.CommonMiddleware',
-                                        'django.middleware.csrf.CsrfViewMiddleware')))
+                   MIDDLEWARE_CLASSES=('django.middleware.common.CommonMiddleware',
+                                       'django.middleware.csrf.CsrfViewMiddleware'))
 
 
 django.setup()

@@ -5,10 +5,13 @@ Models.py
 
 Author: Derek Stegelman
 """
+from __future__ import unicode_literals
+
 import datetime
 
 from time import mktime
 
+from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -21,6 +24,7 @@ import feedparser
 from .managers import FeedItemManager
 
 
+@python_2_unicode_compatible
 class Category(models.Model):
     """
     Category model
@@ -29,7 +33,7 @@ class Category(models.Model):
     slug = models.SlugField(blank=True, null=True, editable=False)
     user = models.ForeignKey(User, blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
@@ -51,6 +55,7 @@ class Category(models.Model):
         return FeedItem.objects.my_feed_items(self.user).category(self.slug).un_read().count()
 
 
+@python_2_unicode_compatible
 class Feed(models.Model):
     """
     Feed Model
@@ -67,7 +72,7 @@ class Feed(models.Model):
             ("url", "user"),
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.url
 
     def _get_title(self):
@@ -176,6 +181,7 @@ class Feed(models.Model):
         return ('feedme-feed-list-by-feed', (), {'feed_id': self.id})
 
 
+@python_2_unicode_compatible
 class FeedItem(models.Model):
     """
     FeedItem Model
@@ -194,7 +200,7 @@ class FeedItem(models.Model):
     class Meta:
         ordering = ['id']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def mark_as_read(self):
