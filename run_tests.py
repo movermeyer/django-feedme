@@ -7,6 +7,7 @@ import django
 
 DIRNAME = os.path.dirname(__file__)
 
+
 settings.configure(DEBUG=True,
                    DATABASES={
                        'default': {
@@ -22,7 +23,6 @@ settings.configure(DEBUG=True,
                    USE_TZ=True,
                    MIDDLEWARE_CLASSES=('django.middleware.common.CommonMiddleware',
                                        'django.middleware.csrf.CsrfViewMiddleware'))
-
 
 
 django.setup()

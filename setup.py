@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-feedme',
-    version='1.2.2',
+    version='2.0.0',
     zip_safe=False,
     packages=find_packages(exclude=['demo']),
     include_package_data=True,
@@ -18,8 +18,11 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        'Programming Language :: Python :: 2.7',
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3",
         "Framework :: Django",
+        "Framework :: Django :: 1.7",
+        "Framework :: Django :: 1.8",
     ],
     install_requires=[
         'feedparser==5.1.3,<6.0',
