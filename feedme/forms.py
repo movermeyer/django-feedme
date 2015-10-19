@@ -6,6 +6,7 @@ Forms.py
 Author: Derek Stegelman
 """
 
+from __future__ import unicode_literals
 from django import forms
 
 from .models import Feed, Category

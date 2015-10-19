@@ -5,6 +5,7 @@ Managers.py
 
 Author: Derek Stegelman
 """
+from __future__ import unicode_literals
 import datetime
 
 from django.db.models.query import QuerySet

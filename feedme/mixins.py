@@ -5,6 +5,7 @@ Mixins.py
 
 Author: Derek Stegelman
 """
+from __future__ import unicode_literals
 import json
 
 from django.http import HttpResponse

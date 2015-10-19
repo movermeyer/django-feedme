@@ -5,6 +5,7 @@ Views.py
 
 Author: Derek Stegelman
 """
+from __future__ import unicode_literals
 import logging
 
 from django.shortcuts import redirect, get_object_or_404
