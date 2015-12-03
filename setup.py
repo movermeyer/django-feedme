@@ -31,4 +31,3 @@ setup(
         'django-infuse>=0.3'
     ]
 )
-
