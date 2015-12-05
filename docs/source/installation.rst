@@ -9,9 +9,8 @@ Add ``feedme`` to your installed apps.  Add route a url to ``feedme.urls``
 
 Add the url name 'auth_login' to your login URL so that the template has a login URL to point to.
 
-Make sure to syncdb or migrate the app::
+Make sure to migrate the app::
 
-    python manage.py syncdb
     python manage.py migrate
 
 
@@ -35,7 +34,7 @@ You will also need to provide a LOGIN_URL as well.
 Dependencies
 ------------
 
-Django Feedme requires Django 1.5 or above.
+Django Feedme requires Django 1.8 or above.
 
 Feedme also requires the use of the django-bootstrap-static library for some static files.  It is bundled in setup.py so by installing this package
 it should already be downloaded to your machine.  In order to have the bootstrap files picked up by your static files hanlder, you'll need to add
@@ -81,4 +80,3 @@ and add the Task::
         "schedule": crontab(minute=0, hour=0),
             },
         }
-
