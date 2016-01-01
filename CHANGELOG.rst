@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.0.1
+-----
+
+- Testing for Django 1.9
+- No longer support Django versions below 1.8.
+- Fix some typos.
+
 2.0.0
 -----
 

@@ -38,7 +38,7 @@ Django Feedme requires Django 1.8 or above.
 
 Feedme also requires the use of the django-bootstrap-static library for some static files.  It is bundled in setup.py so by installing this package
 it should already be downloaded to your machine.  In order to have the bootstrap files picked up by your static files hanlder, you'll need to add
-```bootstrap``` to installed apps.  This will alow Django's static files to pick up the boostrap files.
+```bootstrap``` to installed apps.  This will allow Django's static files to pick up the bootstrap files.
 
 
 Celery Beat
